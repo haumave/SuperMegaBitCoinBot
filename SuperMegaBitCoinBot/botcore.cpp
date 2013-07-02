@@ -1,5 +1,5 @@
 #include <QApplication>
 
-int bot_run () {
+int botRun () {
     return 0;
 }
