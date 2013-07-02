@@ -14,8 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    botcore.cpp
+    botcore.cpp \
+    webinterface.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    webinterface.h
 
 FORMS    += mainwindow.ui
