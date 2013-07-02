@@ -1,3 +1,5 @@
+// леш, я хочу все перехерачить
+
 #include <QApplication>
 #define BUY +1
 #define SELL -1
