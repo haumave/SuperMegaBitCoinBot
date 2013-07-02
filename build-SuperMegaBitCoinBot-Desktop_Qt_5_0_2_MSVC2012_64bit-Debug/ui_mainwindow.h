@@ -14,10 +14,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,28 +24,32 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
-    QStatusBar *statusBar;
+    QPushButton *startEarningButton;
+    QLineEdit *apiKeyEdit;
+    QLineEdit *secretKeyEdit;
+    QWidget *statsView;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(400, 300);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(mainToolBar);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        startEarningButton = new QPushButton(centralWidget);
+        startEarningButton->setObjectName(QStringLiteral("startEarningButton"));
+        startEarningButton->setGeometry(QRect(110, 80, 191, 32));
+        apiKeyEdit = new QLineEdit(centralWidget);
+        apiKeyEdit->setObjectName(QStringLiteral("apiKeyEdit"));
+        apiKeyEdit->setGeometry(QRect(20, 20, 361, 21));
+        secretKeyEdit = new QLineEdit(centralWidget);
+        secretKeyEdit->setObjectName(QStringLiteral("secretKeyEdit"));
+        secretKeyEdit->setGeometry(QRect(20, 50, 361, 21));
+        statsView = new QWidget(centralWidget);
+        statsView->setObjectName(QStringLiteral("statsView"));
+        statsView->setGeometry(QRect(20, 120, 361, 151));
         MainWindow->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
@@ -55,7 +58,11 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SuperMegaBitCoinBot", 0));
+        startEarningButton->setText(QApplication::translate("MainWindow", "Start earning money!", 0));
+        apiKeyEdit->setPlaceholderText(QApplication::translate("MainWindow", "Your API key", 0));
+        secretKeyEdit->setText(QString());
+        secretKeyEdit->setPlaceholderText(QApplication::translate("MainWindow", "Your secret key", 0));
     } // retranslateUi
 
 };
