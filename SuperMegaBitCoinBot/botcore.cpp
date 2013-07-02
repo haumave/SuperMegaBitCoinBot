@@ -8,7 +8,7 @@ int botRun ()
     return 0;
 }
 
-int botKernel (int * lowPrices) {
+int botKernel (int * lowPrices, int * highPrices) {
     int decision = 0;
 
     if (lowPrices[0] < lowPrices[1])
