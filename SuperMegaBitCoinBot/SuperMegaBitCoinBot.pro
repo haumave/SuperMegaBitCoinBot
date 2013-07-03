@@ -16,6 +16,10 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     botcore.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    botcore.h
 
 FORMS    += mainwindow.ui
+
+QT += webkit
+QT += webkit webkitwidgets
