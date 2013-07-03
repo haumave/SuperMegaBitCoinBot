@@ -5,6 +5,8 @@
 
 class botCore
 {
+private:
+    int cashedUSD;
 public:
     botCore();
 

@@ -13,6 +13,9 @@ class MainWindow : public QMainWindow
     
 public:
     explicit MainWindow(QWidget *parent = 0);
+
+    void updateGUI ( int BTCRate, int balance_btc, int balance_usd, int casheUSD ); //being called from webInterface
+
     ~MainWindow();
 
 private slots:

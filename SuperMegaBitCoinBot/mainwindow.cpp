@@ -1,7 +1,9 @@
+#define CHARTS_GRAPHIC "http://bitcoincharts.com/charts/chart.png?width=940&m=mtgoxUSD&SubmitButton=Draw&r=60&i=&c=0&s=&e=&Prev=&Next=&t=S&b=&a1=&m1=10&a2=&m2=25&x=0&i1=&i2=&i3=&i4=&v=1&cv=0&ps=0&l=0&p=0&"
+#define IN_DOLLARS 1;
+#define IN_BITCOINS 2;
+
 #include <QDebug>
 #include <QTimer>
-
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -10,7 +12,7 @@ MainWindow::MainWindow (QWidget *parent) :
     ui (new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->webView->load ( QUrl ("http://bitcoincharts.com/charts/chart.png?width=940&m=mtgoxUSD&SubmitButton=Draw&r=60&i=&c=0&s=&e=&Prev=&Next=&t=S&b=&a1=&m1=10&a2=&m2=25&x=0&i1=&i2=&i3=&i4=&v=1&cv=0&ps=0&l=0&p=0&") );
+    ui->webView->load ( QUrl ( CHARTS_GRAPHIC ) );
     this->updateInterval = 3000;
     this->minimalDifference = 0.1;
 }
@@ -34,12 +36,13 @@ void MainWindow::startEarning ()
 
 void MainWindow::updateResults ()
 {
-    qDebug () << "Updating results in GUI";
-    // Here I download the rates, gives it to botCore and than show it in GUI
-    /*
-     ui->
-     */
-    ui->webView->load ( QUrl ("http://bitcoincharts.com/charts/chart.png?width=940&m=mtgoxUSD&SubmitButton=Draw&r=60&i=&c=0&s=&e=&Prev=&Next=&t=S&b=&a1=&m1=10&a2=&m2=25&x=0&i1=&i2=&i3=&i4=&v=1&cv=0&ps=0&l=0&p=0&") );
+    qDebug () << "Updating results";
+    ui->webView->load ( QUrl ( CHARTS_GRAPHIC ) );
+}
+
+void MainWindow::updateGUI ( int BTCRate, int balance_btc, int balance_usd, int casheUSD )
+{
+    qDebug () << "Updating GUI";
 }
 
 void MainWindow::on_startEarningButton_clicked ()

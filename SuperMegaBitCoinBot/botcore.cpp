@@ -5,25 +5,29 @@
 botCore::botCore()
 {
     qDebug () << "botCore running";
+    this->cashedUSD = 0;
 }
 
-int botCore::process ( std::vector <int> &lastRates )
+int botCore::process ( std::vector <int> &lastRates ) // I get last five rates
 {
-/*
-    if (  )
+    float differenceBetweenFirstAndLast = lastRates[4] - lastRates[0];
+    float differenceBetweenSecondAndFourth = lastRates[3] - lastRates[1];
+
+    /*
+    if ( lastRates[] ) // nothing happens — idling
     {
         return -1;
     }
 
-    if ( )
+    if ( ) // going down — buy dollars
     {
         return 0;
     }
 
-    if (  )
+    if (  ) // going up — buy BTC
     {
         return 1;
     }
- */
+    */
 }
 

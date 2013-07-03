@@ -1,16 +1,23 @@
 #ifndef WEBINTERFACE_H
 #define WEBINTERFACE_H
 
-class WebInterface
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <vector>
+#include "mainwindow.h"
+
+class webInterface : MainWindow
 {
+private slots:
+    void loadFinished ( QNetworkReply *reply );
+    void doPOST ();
 public:
-    WebInterface();
-
-    void getRate ();
-    void buyBitCoins ( int amount );
-    void buyDollars ( int amount );
-
+    webInterface ( QString *apiKey, QString *secretKey );
+    std::vector<int> getLastRates ();
+    float getBTCRate ();
+    float getBalance ( int valute );
+    bool buyUSD ( int amount );
+    bool buyBTC ( int amount );
 };
-
 
 #endif // WEBINTERFACE_H
