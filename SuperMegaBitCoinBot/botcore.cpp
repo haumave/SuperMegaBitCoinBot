@@ -29,5 +29,6 @@ int botCore::process ( std::vector <int> &lastRates ) // I get last five rates
         return 1;
     }
     */
+    return 0;
 }
 
